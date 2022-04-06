@@ -14,7 +14,7 @@ class TesterMonChat(unittest.TestCase):
         self.assertIsInstance(monchat.classification, chat.Classification)
         self.assertEqual(monchat._isCute, True)
     
-    def test_constructor_arugmenttypeerror(self):
+    def test_constructor_argumenttypeerror(self):
         self.assertRaises(ArgumentTypeError, chat.Chat, 2)
         self.assertRaises(ArgumentTypeError, chat.Chat, [1,"2",3,4])
         self.assertRaises(ArgumentTypeError, chat.Chat, {"1":1})
