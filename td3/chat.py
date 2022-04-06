@@ -12,17 +12,21 @@ class Classification(Enum):
     INVERTEBRE = 6
 
 class Animal:
-    _nom = ""
+    _nom            = ""
     _classification = None
-    _isCute = True
+    _isCute         = True
+    _age            = 0 
     
-    def __init__(self, nom, classification) :
+    def __init__(self, nom = "Noooopy", classification = Classification.AMPHIBIEN, age = 0) :
         if not isinstance(nom, str):
             raise ArgumentTypeError("Must be a string !")
         if not isinstance(classification, Classification):
             raise ArgumentTypeError("Must be a classification")
+        if not isinstance(age, int):
+            raise ArgumentTypeError("Must be a int")
         self._nom = nom
         self._classification = classification
+        self._age = age
 
     @property
     def classification(self):
@@ -34,13 +38,16 @@ class Animal:
 
     @property
     def isCute(self):
-
         return self._isCute
 
-class Chat(Animal) :
-    def __init__(self, nom):
-        
-        super().__init__(nom, Classification.MAMIFERE)
-        print("chat : " + self._nom + " " +str(self._classification))
+    @property
+    def age(self):
+        return self._age
 
-Chat("Noopy, c'est un garrène")
+
+class Chat(Animal) :
+    def __init__(self, nom, age = 0):
+        super().__init__(nom, Classification.MAMIFERE, age)
+        print("chat : " + self._nom + " " +str(self._classification) + " agé de : " + str(self._age))
+
+Chat("Noopy, c'est un garrène", 18)
