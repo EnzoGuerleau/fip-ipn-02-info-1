@@ -21,12 +21,12 @@ class Animal:
 class chat(Animal) :
     def __init__(self, nom, classification):
         super().__init__(nom, classification)
-        #print("chat : " + self._nom + " " +str(self._classification))
+        print("chat : " + self._nom + " " +str(self._classification))
 
 class chien(Animal):
     def __init__(self, nom, classification):
         super().__init__(nom, classification)
-        print(self._nom + " est un chien")
+        print("chien : " + self._nom + " " +str(self._classification))
 
 chat("Noopy", Classification.MAMIFERE)
-chien("Osama", Classification.MAMIFERE)
+chien("Médor", Classification.MAMIFERE)
